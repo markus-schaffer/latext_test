@@ -13,9 +13,9 @@ jobs:
         with:
           root_file: main.tex
       - name: Upload PDF
-	  - uses: actions/checkout@v2
-	  - run: mkdir -p pdf
-      - uses: actions/upload-artifact@v3
+        uses: actions/checkout@v2
+        run: mkdir -p pdf
+        uses: actions/upload-artifact@v3
         with:
           name: pdf/my-artifact
           path:main.pdf
