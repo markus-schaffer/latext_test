@@ -10,3 +10,12 @@ jobs:
         uses: dante-ev/latex-action@latest
         with:
           root_file: main.tex
+- uses: actions/checkout@v2
+- run: mkdir -p pdf
+
+- uses: actions/upload-artifact@v3
+  with:
+    name: my-artifact
+    path: pdf/main.txt
+runs:
+  using: 'node16'
