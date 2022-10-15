@@ -10,7 +10,7 @@ jobs:
         uses: dante-ev/latex-action@latest
         with:
           root_file: main.tex
-  Upload file
+  Upload file:
     steps:
     - uses: actions/upload-artifact@v3
   with:
