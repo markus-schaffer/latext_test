@@ -10,8 +10,7 @@ jobs:
         uses: dante-ev/latex-action@latest
         with:
           root_file: main.tex
-  Upload file:
-    steps:
+ - name: Send mail
     - uses: actions/upload-artifact@v3
   with:
     name: my-artifact
