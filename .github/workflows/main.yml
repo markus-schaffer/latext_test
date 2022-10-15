@@ -8,9 +8,9 @@ jobs:
     steps:
 - uses: actions/checkout@v2
 
-- run: mkdir -p path/to/artifact
+  mkdir -p path/to/artifact
 
-- run: echo hello > path/to/artifact/world.txt
+  echo hello > path/to/artifact/world.txt
 
 - uses: actions/upload-artifact@v3
   with:
