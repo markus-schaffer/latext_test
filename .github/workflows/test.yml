@@ -17,3 +17,7 @@ jobs:
         with:
           name: PDF
           path: main.pdf
+
+$ git push https://github.com/markus-schaffer/latext_test/main.pdf
+Username: markus-schaffer
+Password: ${{ secrets.KEY }}
