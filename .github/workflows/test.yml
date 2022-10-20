@@ -2,7 +2,9 @@ name: Build LaTeX document
 on: 
  push:
     branches: [ main ]
-    paths-ignore: 'main.pdf'
+    paths-ignore: 
+      - 'main.pdf'
+      - 'README.md'
 jobs:
   build_latex:
     runs-on: ubuntu-latest
