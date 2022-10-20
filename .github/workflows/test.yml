@@ -12,19 +12,23 @@ jobs:
         uses: dante-ev/latex-action@latest
         with:
           root_file: main.tex
-      - name: Upload PDF
-        uses: actions/upload-artifact@v3
+      - name: stash pdf
+        run:
+          mv  main.pdf $HOME # cache the file
+      - name: checkout gh_actions_builds branch
+        uses: actions/checkout@v1
         with:
-          name: PDF
-          path: main.pdf
-
-      - uses: actions/checkout@v2
-        with:
-         token: ${{ secrets.KEY }}
-      - name: Create report file
-        run: PDF/main.pdf > main.pdf
-      - name: Commit report
+          ref: gh_actions_builds
+      - name: commit pdf
         run: |
-          git config --global user.name 'markus-schaffer'
-          git commit -am "Automated report"
-          git push
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          mv $HOME/main.pdf $(pwd) # bring it back 
+          git add main.pdf
+          git commit -m "Add changes"
+      - name:  push pdf
+        uses: ad-m/github-push-action@v0.6.0
+        with: 
+          branch: gh_actions_builds 
+          force: false
+          github_token: ${{ secrets.KEY }}
