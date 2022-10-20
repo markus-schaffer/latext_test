@@ -20,7 +20,7 @@ jobs:
 
       - uses: actions/checkout@v2
         with:
-        token: ${{ secrets.KEY }}
+          token: ${{ secrets.KEY }}
       - name: Create report file
         run: main.pdf > main.pdf
       - name: Commit report
