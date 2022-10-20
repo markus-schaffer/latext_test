@@ -24,7 +24,7 @@ jobs:
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
           mv $HOME/main.pdf $(pwd) # bring it back 
-          git add pdf/main.pdf
+          git add main.pdf
           git commit -m "Newest version"
       - name: Push changes
         uses: ad-m/github-push-action@master
