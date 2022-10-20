@@ -16,7 +16,7 @@ jobs:
         run:
           mv  main.pdf $HOME # cache the file
       - name: checkout gh_actions_builds branch
-        uses: actions/checkout@v1
+        uses: actions/checkout@v2
         with:
           ref: gh_actions_builds
       - name: commit pdf
@@ -26,9 +26,7 @@ jobs:
           mv $HOME/main.pdf $(pwd) # bring it back 
           git add main.pdf
           git commit -m "Add changes"
-      - name:  push pdf
-        uses: ad-m/github-push-action@v0.6.0
-        with: 
-          branch: gh_actions_builds 
-          force: false
+      - name: Push changes
+        uses: ad-m/github-push-action@master
+        with:
           github_token: ${{ secrets.KEY }}
